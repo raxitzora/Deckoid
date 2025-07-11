@@ -31,10 +31,10 @@ const Navbar = ({
 
   return (
     <nav className={`fixed w-full z-50 px-4 py-2 shadow text-white font-semibold`} style={{ backgroundColor: bgColor }}>
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
+      <div className="flex justify-between items-center mx-auto">
         
         {/* Logo (Left Side) */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center ml-4 lg:ml-28 lg:mr-4">
           <Image
             src={logoSrc}
             alt={logoAlt}
@@ -70,13 +70,13 @@ const Navbar = ({
 
         {/* Mobile Toggle */}
         <button className="lg:hidden" onClick={toggleMenu}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={24} /> : <Menu size={34} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden flex flex-col gap-4 mt-3 px-2 pb-4 text-sm font-semibold tracking-wide">
+        <div className="lg:hidden flex flex-col gap-4 mt-3 px-2 pb-4 text-lg font-semibold tracking-wide">
           {navLinks.map((link) => (
             <Link
               key={link.label}

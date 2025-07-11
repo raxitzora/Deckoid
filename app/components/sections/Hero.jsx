@@ -25,7 +25,7 @@ const Hero = ({
         muted
         loop
         playsInline
-        className="hidden lg:block absolute inset-0 w-full h-full object-fill z-0"
+        className="hidden lg:block absolute inset-0 w-full h-full object-contain z-0"
       >
         <source src={videoSrc} type="video/mp4" />
         Your browser does not support the video tag.
