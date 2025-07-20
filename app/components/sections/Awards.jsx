@@ -21,10 +21,10 @@ const AwardSection = () => {
   return (
     <section
       ref={ref}
-      className="bg-gradient-to-r from-[#6C469C] to-[#A58FD6] text-white py-16 px-6 h-[500px]"
+      className="bg-[#8C6CB5] text-white py-20 px-6"
       aria-labelledby="award-section"
     >
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
         {/* Left Text Section */}
         <motion.div
           className="lg:w-1/2 text-center lg:text-left"
@@ -39,27 +39,32 @@ const AwardSection = () => {
             },
           }}
         >
-          <h2 id="award-section" className="text-3xl sm:text-4xl font-bold mb-2">
+          <h2
+            id="award-section"
+            className="text-3xl sm:text-4xl font-bold mb-4 leading-tight"
+          >
             Recognized for Digital Brilliance
           </h2>
-          <p className="italic text-base sm:text-lg mb-4">
+          <p className="italic text-lg mb-4">
             Award-Winning Digital Marketing Agency – Deckoid Solutions
           </p>
-          <p className="text-sm sm:text-base mb-6">
-            At the Saurashtra IT-ITeS Excellence Awards 2024, presented by Rajkot Information Technology Association (RITA), Deckoid Solutions was honored for outstanding achievements in IT and Digital Marketing.
+          <p className="text-base mb-8 leading-relaxed">
+            At the Saurashtra IT-ITeS Excellence Awards 2024, presented by
+            Rajkot Information Technology Association (RITA), Deckoid Solutions
+            was honored for outstanding achievements in IT and Digital
+            Marketing.
           </p>
-
           <Link
             href="/contact"
             className="inline-block bg-white text-[#6E44FE] font-semibold px-6 py-3 rounded-full shadow-md hover:bg-purple-100 transition"
           >
-            Let's Talk →
+            Let&apos;s Talk →
           </Link>
         </motion.div>
 
         {/* Right Image Section */}
         <motion.div
-          className="lg:w-4/5 w-full flex justify-center"
+          className="lg:w-1/2 w-full flex justify-center"
           initial="hidden"
           animate={controls}
           variants={{
@@ -76,8 +81,8 @@ const AwardSection = () => {
             src="/img/Digital-Brilliance.png"
             alt="Award Image"
             width={800}
-            height={600}
-            className="rounded-lg shadow-lg object-contain w-full h-auto"
+            height={500}
+            className="rounded-lg shadow-lg object-contain w-full h-auto max-w-[600px]"
             priority
           />
         </motion.div>
