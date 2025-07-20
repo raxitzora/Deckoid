@@ -97,7 +97,7 @@ const Circles = () => {
   return (
     <div
       ref={sectionRef}
-      className="w-full py-14 px-4 sm:px-6 md:px-10 lg:px-16 bg-[#190E41] rounded-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center"
+      className="w-full py-8 px-4 sm:px-6 md:px-2 lg:px-16 bg-[#190E41] rounded-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 place-items-center mt-8"
     >
       {stats.map((item, index) => (
         <motion.div
