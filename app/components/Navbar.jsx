@@ -30,7 +30,7 @@ const Navbar = ({
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className={`fixed w-full z-50 px-4 py-2 shadow text-white font-semibold`} style={{ backgroundColor: bgColor }}>
+    <nav className={`fixed w-full z-50 px-4 py-2 shadow text-white font-semibold h-[80px]`} style={{ backgroundColor: bgColor }}>
       <div className="flex justify-between items-center mx-auto">
         
         {/* Logo (Left Side) */}
