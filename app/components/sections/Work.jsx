@@ -30,12 +30,12 @@ function WorkSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#190d41] py-12 sm:py-20"
+      className="bg-[#190d41] sm:py-0 w-full py-2"
       aria-labelledby="work-section"
     >
       {/* Title Animation */}
       <motion.div
-        className="mb-10 sm:mb-16 flex items-center justify-center px-4"
+        className="mb-0 sm:mb-0 flex items-center justify-center px-0"
         initial="hidden"
         animate={controls}
         variants={{
@@ -47,12 +47,12 @@ function WorkSection() {
           },
         }}
       >
-        <TextHoverEffect text="Services" duration={0.3} className="text-3xl sm:text-4xl md:text-5xl" />
+        <TextHoverEffect text="Services" duration={0.3} className="text-3xl sm:text-4xl md:text-5xl m-0 p-0" />
       </motion.div>
 
       {/* Grid Animation */}
       <motion.div
-        className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12"
+        className="max-w-[90rem] mx-auto px-2 sm:px-4 lg:px-6"
         initial="hidden"
         animate={controls}
         variants={{
