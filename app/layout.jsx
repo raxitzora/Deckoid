@@ -41,8 +41,8 @@ export default function RootLayout({ children }) {
         imageAlt="Animated Turtle"
         reverse={true}
       />
-        
-       {children}
+      
+     {children}
         <Footer />
       </body>
     </html>
