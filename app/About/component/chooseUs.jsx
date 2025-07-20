@@ -75,7 +75,7 @@ function ChooseUs() {
       <div className="text-center max-w-3xl mx-auto mb-16">
         <motion.h2
           id="choose-us-heading"
-          className="text-4xl font-extrabold text-gray-900"
+          className="text-5xl font-extrabold text-gray-900"
           initial="hidden"
           animate={controls}
           variants={{
@@ -113,7 +113,7 @@ function ChooseUs() {
         {features.map((feature, index) => (
           <motion.div
             key={index}
-            className="bg-white hover:bg-[#f0f0f0] transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl rounded-2xl p-8 text-center flex flex-col items-center min-h-[320px]"
+            className="bg-white hover:bg-[#f0f0f0] transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl rounded-full p-12 text-center flex flex-col items-center min[320px]"
             variants={cardVariants}
           >
             <motion.div
