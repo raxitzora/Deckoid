@@ -22,13 +22,18 @@ export const TextHoverEffect = ({ text, duration = 0.3, className = "" }) => {
   return (
     <svg
       ref={svgRef}
-      width="100%"
-      height="100%"
-      viewBox="0 0 300 100"
+      viewBox="0 0 300 60"
       xmlns="http://www.w3.org/2000/svg"
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
       className={`select-none ${className}`}
       preserveAspectRatio="xMidYMid meet"
+      style={{
+        display:"block",
+        width:"auto",
+        height:"auto",
+        margin:0,
+        padding:0
+      }}
     >
       <defs>
         <linearGradient id="textGradient" gradientUnits="userSpaceOnUse" cx="50%" cy="50%" r="25%">
