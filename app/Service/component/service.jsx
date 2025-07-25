@@ -30,12 +30,12 @@ function ServiceSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#190d41] py-12 sm:py-20"
+      className="bg-[#190d41] py-8 sm:py-12"
       aria-labelledby="work-section"
     >
-      {/* Title Animation */}
+      {/* Title */}
       <motion.div
-        className="mb-10 sm:mb-16 flex items-center justify-center px-4"
+        className="mb-6 flex items-center justify-center px-4"
         initial="hidden"
         animate={controls}
         variants={{
@@ -47,10 +47,14 @@ function ServiceSection() {
           },
         }}
       >
-        <TextHoverEffect text="Services" duration={0.3} className="text-3xl sm:text-1xl md:text-5xl" />
+        <TextHoverEffect
+          text="Services"
+          duration={0.3}
+          className="text-2xl sm:text-3xl md:text-5xl"
+        />
       </motion.div>
 
-      {/* Grid Animation */}
+      {/* Cards Grid */}
       <motion.div
         className="mx-auto px-4 sm:px-6 lg:px-12"
         initial="hidden"
@@ -68,10 +72,9 @@ function ServiceSection() {
           },
         }}
       >
-        {/* Adjust card sizes via HoverEffect’s styling */}
         <HoverEffect
           items={imageProjects}
-          cardClass="rounded-xl w-full sm:w-[280px] md:w-[320px] lg:w-[360px] h-[200px] md:h-[220px] lg:h-[240px]"
+          cardClass="rounded-xl w-full sm:w-[260px] md:w-[300px] lg:w-[340px] h-[180px] md:h-[200px] lg:h-[220px]"
         />
       </motion.div>
     </section>
