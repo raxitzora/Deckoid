@@ -1,89 +1,155 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { PiStackSimpleBold } from "react-icons/pi";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 
-const Scale = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.3 });
+const services = [
+  {
+    title: "Strategic SEO",
+    desc: "From white-hat audit and keyword mapping to backlink building and technical optimisation—our SEO tactics bring your site to the forefront of search.",
+    impact: ["More organic visibility", "More qualified traffic", "More trust"],
+  },
+  {
+    title: "Eye-Catching Graphic Design",
+    desc: "Whether it’s logos, infographics, 3D packaging mock-ups or social creatives, our visual storytelling makes your brand unforgettable.",
+    impact: ["Stronger brand recall", "Immediate visual impact", "Deeper audience engagement"],
+  },
+  {
+    title: "Website Design & Development",
+    desc: "Responsive, secure, lightning-fast websites built on modern platforms—designed with UX-first thinking.",
+    impact: ["Visitors convert", "Bounce rates drop", "ROI multiplies"],
+  },
+  {
+    title: "Social Media Management",
+    desc: "Strategic content calendars, polished visuals, community management and performance-driven campaigns.",
+    impact: ["Greater brand presence", "Meaningful audience growth"],
+  },
+  {
+    title: "Facebook Ads & Lead Gen",
+    desc: "Scroll-stopping creatives, smart audience targeting, constant optimisation & transparent analytics.",
+    impact: ["Higher-quality leads at lower CPL", "Scale faster"],
+  },
+  {
+    title: "Video Editing",
+    desc: "Professional, attention-grabbing brand videos—from concept to final cut.",
+    impact: ["Videos that connect", "Convert, and elevate your message"],
+  },
+];
+
+const Card3D = ({ children }) => {
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (window.innerWidth < 768) return;
+
+    const card = cardRef.current;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * 10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+
+    card.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+  };
+
+  const resetRotation = () => {
+    const card = cardRef.current;
+    card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+  };
 
   return (
-    <motion.div
-      ref={ref}
-      className="relative bg-white rounded-[2.5rem] py-20 px-6 md:px-24 shadow-[0_25px_80px_rgba(0,0,0,0.1)] overflow-hidden mt-15"
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={{
-        hidden: { opacity: 0, y: 60 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.9, ease: "easeOut" },
-        },
-      }}
+    <div
+      ref={cardRef}
+      className="transform-gpu will-change-transform transition-transform duration-200 ease-out rounded-xl backface-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={resetRotation}
     >
-      {/* Glowing blobs */}
-      <motion.div
-        className="absolute top-[-80px] left-[-80px] w-[250px] h-[250px] bg-[#a78bfa] opacity-30 blur-[100px] rounded-full z-0"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={isInView ? { scale: 1, opacity: 0.3 } : {}}
-        transition={{ delay: 0.2, duration: 1, ease: "backOut" }}
-      />
-      <motion.div
-        className="absolute bottom-[-80px] right-[-80px] w-[250px] h-[250px] bg-[#a78bfa] opacity-30 blur-[100px] rounded-full z-0"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={isInView ? { scale: 1, opacity: 0.3 } : {}}
-        transition={{ delay: 0.3, duration: 1, ease: "backOut" }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10 text-center">
-        {/* Icon */}
-        <motion.div
-          className="flex justify-center mb-6"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          <PiStackSimpleBold className="text-5xl text-[#5e3ead]" />
-        </motion.div>
-
-        {/* Heading */}
-        <motion.h2
-          className="text-3xl sm:text-5xl font-extrabold text-gray-900 mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3, duration: 0.7 }}
-        >
-          Ready to <span className="text-[#5e3ead]">Scale</span> with Confidence?
-        </motion.h2>
-
-        {/* Subtext */}
-        <motion.p
-          className="text-lg sm:text-xl text-gray-700 mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.4, duration: 0.7 }}
-        >
-          <span className="text-[#5e3ead] font-bold">Deckoid Solution</span> combines{" "}
-          <span className="font-semibold">strategy, creativity, and technology</span> to deliver growth that matters.
-          If you're ready to stop guessing and start growing, it’s time to connect.
-        </motion.p>
-
-        {/* Bottom Paragraph */}
-        <motion.p
-          className="text-lg sm:text-xl text-gray-700 font-medium"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5, duration: 0.7 }}
-        >
-          Dive into a custom growth plan today and let’s{" "}
-          <span className="font-semibold">build your digital future—together.</span>
-        </motion.p>
-      </div>
-    </motion.div>
+      {children}
+    </div>
   );
 };
 
-export default Scale;
+const containerVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
+
+const Why = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <div ref={sectionRef} className="bg-white py-14 px-4 sm:px-6 md:px-10 lg:px-20">
+      {/* Title */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-black">
+          What We Do at{" "}
+          <motion.span
+            initial={{ scale: 0.95 }}
+            animate={isInView ? { scale: 1 } : {}}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="text-[#5e3ead] inline-block"
+          >
+            Deckoid Solution
+          </motion.span>
+        </h2>
+        <p className="text-black mt-4 text-sm sm:text-base md:text-lg">
+          Empowering your brand with cutting-edge digital solutions.
+        </p>
+      </motion.div>
+
+      {/* Cards */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        variants={containerVariant}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        {services.map((service, index) => (
+          <motion.div key={index} variants={!reduceMotion ? cardVariant : {}}>
+            <Card3D>
+              <div className="border border-[#5e3ead] bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-200 min-h-[320px] flex flex-col justify-between">
+                <h3 className="text-xl font-bold text-[#5e3ead] mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-700 text-sm mb-4">{service.desc}</p>
+                <hr className="mb-4 border-gray-300" />
+                <p className="text-sm font-semibold text-gray-800 mb-1">Your Impact:</p>
+                <ul className="list-disc list-inside text-gray-700 text-sm space-y-1">
+                  {service.impact.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            </Card3D>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+export default Why;

@@ -94,41 +94,56 @@ const Circles = () => {
 }, [inView, reduceMotion]);
 
 
-  return (
-    <div
-      ref={sectionRef}
-      className="w-full py-8 px-4 sm:px-6 md:px-2 lg:px-16 bg-[#190E41] rounded-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 place-items-center mt-8"
-    >
-      {stats.map((item, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{
-            delay: 0.2 + index * 0.15,
-            duration: 0.5,
-            ease: "easeOut",
-          }}
-          className="w-full flex justify-center"
+ return (
+  <div
+    ref={sectionRef}
+    className="w-full px-4 py-12 sm:px-6 md:px-8 lg:px-16 bg-[#190E41] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:grid-cols-2 sm:gap-8 place-items-center mt-10 rounded-4xl"
+  >
+    {stats.map((item, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{
+          delay: 0.2 + index * 0.15,
+          duration: 0.5,
+          ease: "easeOut",
+        }}
+        className="w-full flex justify-center"
+      >
+        <SpotlightCard
+          spotlightColor="rgba(255, 255, 255, 0.1)"
+          className={`rounded-full ${item.color} ${item.shadow} shadow-xl hover:scale-105 transition-all duration-500 ease-in-out flex flex-col items-center justify-center text-white text-center relative
+            w-[200px] h-[200px] sm:w-[230px] sm:h-[230px] md:w-[260px] md:h-[260px] lg:w-[280px] lg:h-[280px] xl:w-[300px] xl:h-[300px]`}
         >
-          <SpotlightCard
-            spotlightColor="rgba(255, 255, 255, 0.1)"
-            className={`w-[220px] h-[220px] sm:w-[250px] sm:h-[250px] md:w-[270px] md:h-[270px] ${item.color} ${item.shadow} rounded-full flex flex-col items-center justify-center text-white text-center shadow-xl hover:scale-105 transition-all duration-500 ease-in-out relative`}
-          >
-            <div className="absolute top-5 bg-white w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full shadow-md">
+          {/* Icon Bubble */}
+          <div className="absolute top-4 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-white flex items-center justify-center rounded-full shadow-md">
+            <span className="text-purple-900 text-lg sm:text-xl md:text-2xl">
               {item.icon}
-            </div>
-            <h3 className="font-bold text-md sm:text-lg mt-4">{item.title}</h3>
-            <p className="text-xs sm:text-sm mt-2 px-3">{item.description}</p>
-            <div className="text-xl sm:text-2xl font-extrabold mt-4">
-              {counts[index]}
-              {item.number >= 1000 ? "+" : ""}
-            </div>
-          </SpotlightCard>
-        </motion.div>
-      ))}
-    </div>
-  );
+            </span>
+          </div>
+
+          {/* Title */}
+          <h3 className="font-bold text-sm sm:text-base md:text-lg mt-16 px-2">
+            {item.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-[11px] sm:text-sm md:text-base mt-1 px-4 sm:px-5 md:px-6">
+            {item.description}
+          </p>
+
+          {/* Count */}
+          <div className="text-lg sm:text-xl md:text-2xl font-extrabold mt-3">
+            {counts[index]}
+            {item.number >= 1000 ? "+" : ""}
+          </div>
+        </SpotlightCard>
+      </motion.div>
+    ))}
+  </div>
+);
+
 };
 
 export default Circles;

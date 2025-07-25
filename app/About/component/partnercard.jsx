@@ -29,7 +29,7 @@ const Partner = () => {
   return (
     <motion.div
       ref={ref}
-      className="bg-[#190E41] py-16 px-4 sm:px-8 lg:px-20 rounded-4xl"
+      className="bg-[#190E41] py-14 px-4 sm:px-8 md:px-12 lg:px-20 rounded-4xl"
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={{
@@ -41,18 +41,18 @@ const Partner = () => {
         },
       }}
     >
-      {/* Heading Section */}
+      {/* Heading */}
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        <h2 className="text-3xl sm:text-6xl font-extrabold text-white leading-tight">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
           Why Brands Partner with{" "}
           <span className="text-[#A78BFA]">Deckoid Solution</span>
         </h2>
-        <p className="text-white mt-4 text-lg sm:text-xl font-medium">
+        <p className="text-white mt-4 text-base sm:text-lg md:text-xl font-medium max-w-3xl mx-auto">
           We're committed to delivering tangible results and building lasting
           partnerships that drive your success.
         </p>
@@ -72,12 +72,12 @@ const Partner = () => {
               ease: "easeOut",
             }}
           >
-            <div className="rounded-[15px] bg-[#1F114E] p-8 h-[320px] hover:shadow-[0_0_30px_#5e9ead99] transition-all duration-300">
-              <h3 className="text-xl font-extrabold text-white mb-4 leading-snug">
+            <div className="rounded-[15px] bg-[#1F114E] p-6 md:p-8 h-full min-h-[300px] hover:shadow-[0_0_30px_#5e9ead99] transition-all duration-75 flex flex-col justify-between">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold text-white mb-4 leading-snug">
                 {item.title}
                 <span className="block h-[2px] w-12 bg-[#A78BFA] mt-3"></span>
               </h3>
-              <p className="text-base text-gray-300 font-medium leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-300 font-medium leading-relaxed">
                 {item.desc}
               </p>
             </div>
