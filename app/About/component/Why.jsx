@@ -40,7 +40,7 @@ const Card3D = ({ children }) => {
   const cardRef = useRef(null);
 
   const handleMouseMove = (e) => {
-    if (window.innerWidth < 768) return; // Disable 3D tilt on small devices
+    if (window.innerWidth < 768) return;
 
     const card = cardRef.current;
     const rect = card.getBoundingClientRect();
@@ -97,7 +97,7 @@ const Why = () => {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div ref={sectionRef} className="bg-white py-16 px-4 sm:px-10 lg:px-20">
+    <div ref={sectionRef} className="bg-white py-14 px-4 sm:px-6 md:px-10 lg:px-20">
       {/* Title */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -105,7 +105,7 @@ const Why = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-black">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-black">
           What We Do at{" "}
           <motion.span
             initial={{ scale: 0.95 }}
@@ -116,7 +116,7 @@ const Why = () => {
             Deckoid Solution
           </motion.span>
         </h2>
-        <p className="text-black mt-4 text-sm sm:text-lg">
+        <p className="text-black mt-4 text-sm sm:text-base md:text-lg">
           Empowering your brand with cutting-edge digital solutions.
         </p>
       </motion.div>
@@ -131,7 +131,7 @@ const Why = () => {
         {services.map((service, index) => (
           <motion.div key={index} variants={!reduceMotion ? cardVariant : {}}>
             <Card3D>
-              <div className="border border-[#5e3ead] bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-200">
+              <div className="border border-[#5e3ead] bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-200 min-h-[320px] flex flex-col justify-between">
                 <h3 className="text-xl font-bold text-[#5e3ead] mb-3">
                   {service.title}
                 </h3>
