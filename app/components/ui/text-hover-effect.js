@@ -28,11 +28,11 @@ export const TextHoverEffect = ({ text, duration = 0.3, className = "" }) => {
       className={`select-none ${className}`}
       preserveAspectRatio="xMidYMid meet"
       style={{
-        display:"block",
-        width:"auto",
-        height:"auto",
-        margin:0,
-        padding:0
+        display: "block",
+        width: "auto",
+        height: "auto",
+        margin: 0,
+        padding: 0
       }}
     >
       <defs>
