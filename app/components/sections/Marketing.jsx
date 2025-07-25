@@ -15,7 +15,7 @@ const marketingData = [
     highlight: "Best Digitalmarketing company",
     desc: "Recognized as RITA (Saurastra IT-ITES award) for outstanding marketing results.",
     tag: "Awards Won",
-    image: "/img/award.png",
+    image: "/img/award.png"
   },
   {
     title: "Boosting Website Traffic by",
