@@ -66,7 +66,7 @@ const Footer = () => {
             <li>› Search Engine Optimization</li>
             <li>› Graphic Design</li>
             <li>› Website Design</li>
-            <li>› Vedio Editing</li>
+            <li>› Video Editing</li>
             <li>› Facebook Ads</li>
             <li>› Lead Generation</li>
           </ul>
